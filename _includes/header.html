@@ -1,0 +1,109 @@
+<!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                    <img src="img/{{ site.logo }}.png" height="50" width="50" alt="hewwo-logo" />
+                    {{site.title}}
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#features">Features</a>
+                    </li>
+                    <!-- <li>
+                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                    </li> -->
+                    <!-- <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li> -->
+                    <li>
+                        <a class="page-scroll" href="#getapp">Get App</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="coming-soon">
+                    <div>
+                       <h2> We'll enter your mobile soon!</h2> 
+                       <div class="countdown"> 
+                        <div class="container-day">
+                            <h3 class="day"> Time</h3>
+                            <h3> Day</h3>
+                        </div>
+                        <div class="container-hour">
+                            <h3 class="hour"> Time</h3>
+                            <h3> Hour </h3>
+                        </div>
+                        <div class="container-minute">
+                            <h3 class="minute"> Time</h3>
+                            <h3> Minute </h3>
+                        </div>
+                        <div class="container-second">
+                            <h3 class="second"> Time</h3>
+                            <h3>Second</h3>
+                        </div>
+                       </div>
+                    </div>
+                </div>
+               <!-- <div class="intro-heading">It's Nice To Meet You</div> 
+                <a href="#features" class="page-scroll btn btn-xl">Tell Me More</a> -->
+            </div>
+        </div>
+    </header>
+
+    <script>
+        const countdown = () => {
+            const countDate = new Date("May 15, 2023 00:00:00").getTime();
+            const now = new Date().getTime();
+            const gap = countDate - now;
+
+            const second=1000;
+            const minute = second * 60;
+            const hour = minute * 60;
+            const day = hour * 24;
+
+            const textDay = Math.floor(gap / day);
+            const textHour = Math.floor ((gap % day) / hour);
+            const textMinute = Math.floor ((gap % hour) / minute);
+            const textSecond = Math.floor ((gap % minute) / second);
+
+            document.querySelector(".day").innerText = textDay;
+            document.querySelector(".hour").innerText = textHour;
+            document.querySelector(".minute").innerText = textMinute;
+            document.querySelector(".second").innerText = textSecond;
+
+        };
+
+        setInterval(countdown, 1000);
+    </script>
+<!--
+        {% for page in site.pages %}
+          {% if page.title %}<a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>{% endif %}
+        {% endfor %}
+ -->
+
